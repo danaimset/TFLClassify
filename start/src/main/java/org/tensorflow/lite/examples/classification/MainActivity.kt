@@ -223,7 +223,9 @@ class MainActivity : AppCompatActivity() {
                     sortByDescending { it.score} // Sort with highest confidence first
                 }.take(MAX_RESULT_DISPLAY) // take the top results
 
-            // TODO 4: Converting the top probability items into a list of recognitions
+            for (output in outputs) {
+                items.add(Recognition(output.label, output.score))
+            }
 
             // START - Placeholder code at the start of the codelab. Comment this block of code out.
             for (i in 0..MAX_RESULT_DISPLAY-1){
