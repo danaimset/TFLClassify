@@ -44,6 +44,7 @@ import org.tensorflow.lite.examples.classification.ui.RecognitionAdapter
 import org.tensorflow.lite.examples.classification.util.YuvToRgbConverter
 import org.tensorflow.lite.examples.classification.viewmodel.Recognition
 import org.tensorflow.lite.examples.classification.viewmodel.RecognitionListViewModel
+import org.tensorflow.lite.support.image.TensorImage
 import java.util.concurrent.Executors
 import kotlin.random.Random
 
@@ -215,7 +216,7 @@ class MainActivity : AppCompatActivity() {
 
             val items = mutableListOf<Recognition>()
 
-            // TODO 2: Convert Image to Bitmap then to TensorImage
+            val tfImage = TensorImage.fromBitmap(toBitmap(imageProxy))
 
             // TODO 3: Process the image using the trained model, sort and pick out the top results
 
