@@ -39,6 +39,7 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.RecyclerView
+import org.tensorflow.lite.examples.classification.ml.FlowerModel
 import org.tensorflow.lite.examples.classification.ui.RecognitionAdapter
 import org.tensorflow.lite.examples.classification.util.YuvToRgbConverter
 import org.tensorflow.lite.examples.classification.viewmodel.Recognition
@@ -208,7 +209,7 @@ class MainActivity : AppCompatActivity() {
 
         // TODO 6. Optional GPU acceleration
 
-        // TODO 1: Add class variable TensorFlow Lite Model
+        private val flowerModel = FlowerModel.newInstance(ctx)
 
         override fun analyze(imageProxy: ImageProxy) {
 
