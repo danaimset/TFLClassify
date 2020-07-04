@@ -218,7 +218,10 @@ class MainActivity : AppCompatActivity() {
 
             val tfImage = TensorImage.fromBitmap(toBitmap(imageProxy))
 
-            // TODO 3: Process the image using the trained model, sort and pick out the top results
+            val outputs = flowerModel.process(tfImage)
+                    .probabilityAsCategoryList.apply {
+                    sortByDescending { it.score} // Sort with highest confidence first
+                }.take(MAX_RESULT_DISPLAY) // take the top results
 
             // TODO 4: Converting the top probability items into a list of recognitions
 
