@@ -228,9 +228,9 @@ class MainActivity : AppCompatActivity() {
             }
 
             // START - Placeholder code at the start of the codelab. Comment this block of code out.
-            for (i in 0..MAX_RESULT_DISPLAY-1){
+            /*for (i in 0..MAX_RESULT_DISPLAY-1){
                 items.add(Recognition("Fake label $i", Random.nextFloat()))
-            }
+            }*/
             // END - Placeholder code at the start of the codelab. Comment this block of code out.
 
             // Return the result
