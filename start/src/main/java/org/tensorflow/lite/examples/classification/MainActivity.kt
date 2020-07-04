@@ -45,6 +45,7 @@ import org.tensorflow.lite.examples.classification.util.YuvToRgbConverter
 import org.tensorflow.lite.examples.classification.viewmodel.Recognition
 import org.tensorflow.lite.examples.classification.viewmodel.RecognitionListViewModel
 import org.tensorflow.lite.support.image.TensorImage
+import org.tensorflow.lite.support.model.Model
 import java.util.concurrent.Executors
 import kotlin.random.Random
 
@@ -208,9 +209,9 @@ class MainActivity : AppCompatActivity() {
     private class ImageAnalyzer(ctx: Context, private val listener: RecognitionListener) :
         ImageAnalysis.Analyzer {
 
-        // TODO 6. Optional GPU acceleration
+        private val options = Model.Options.Builder().setDevice(Model.Device.GPU).build()
 
-        private val flowerModel = FlowerModel.newInstance(ctx)
+        private val flowerModel = FlowerModel.newInstance(ctx, options)
 
         override fun analyze(imageProxy: ImageProxy) {
 
